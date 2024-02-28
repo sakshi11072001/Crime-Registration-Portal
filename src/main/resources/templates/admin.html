@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgb(64, 128, 128);
+        }
+
+        th {
+            background-color: #eae0c8 ;
+        }
+
+        /* Button style */
+        .btn-update {
+            background-color:#367588 ;
+            color: #faf0be;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-update:hover {
+            background-color:#5f9ea0 ;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Admin Dashboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User Login</th>
+                <th>Phone</th>
+                <th>City</th>
+                <th>Pincode</th>
+                <th>Address</th>
+                <th>Incident</th>
+                <th>Place</th>
+                <th>Complaint For</th>
+                <th>Date</th>
+                <th>Victim Name</th>
+                <th>AdditionalInfo</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through complaints and display each complaint -->
+            <tr th:each="complaint : ${complaints}">
+                <form action="/updateStatus" method="post">
+                    <input type="hidden" name="complaintId" th:value="${complaint.id}">
+                    <td th:text="${complaint.userLogin}"></td>
+                    <td th:text="${complaint.phone}"></td>
+                    <td th:text="${complaint.city}"></td>
+                    <td th:text="${complaint.pincode}"></td>
+                    <td th:text="${complaint.address}"></td>
+                    <td th:text="${complaint.incident}"></td>
+                    <td th:text="${complaint.place}"></td>
+                    <td th:text="${complaint.complaintFor}"></td>
+                    <td th:text="${complaint.date}"></td>
+                    <td th:text="${complaint.victimName}"></td>
+                    <td th:text="${complaint.additionalInfo}"></td>
+                    <!-- Display a dropdown to update status -->
+                    <td>
+                        <select name="newStatus">
+                            <option value="received">Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn-update">UpdateStatus</button>
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

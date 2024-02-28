@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Registration Portal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #c4cad3; /* Previous background color */
+            background-image: url('background_image.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            animation: fadeIn 2s ease; /* Fade in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+            padding: 60px; /* Increased padding */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 500px; /* Increased width */
+            max-width: 90%; /* Maximum width for responsiveness */
+        }
+
+        h1 {
+            color: #333; /* Title color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Title shadow */
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .options a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff; /* Link color */
+            background-color: #4f70a2; /* Previous button background color */
+            padding: 15px 30px; /* Increased padding */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .options a:hover {
+            background-color: #425c81; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crime Registration Portal</h1>
+        <div class="options">
+            <a href="/register">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+</body>
+</html>

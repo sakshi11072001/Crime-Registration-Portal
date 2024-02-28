@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b0c4de; /* Light Blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background-color: #fff; /* White */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #778ba5; /* Grayish Blue */
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            filter: brightness(90%);
+        }
+
+        .btn-file {
+            background-color: #4f70a2; /* Blue */
+            color: #fff;
+        }
+
+        .btn-check {
+            background-color: #ff8c00; /* Orange */
+            color: #fff;
+        }
+
+        .btn-update {
+            background-color: #dc3545; /* Red */
+            color: #fff;
+        }
+
+        .btn-delete {
+            background-color: #6c757d; /* Gray */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <h2>Welcome, <span th:text="${userLogin}"></span>!</h2>
+        </div>
+        <div class="btn-group">
+			<a href="fileComplaint" class="btn btn-file">File a Complaint</a>
+            <button class="btn btn-check" onclick="checkStatus()">Check Complaint Status</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-update" onclick="updateComplaint()">Update Complaint</button>
+            <button class="btn btn-delete" onclick="deleteComplaint()">Delete Complaint</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        function checkStatus() {
+            window.location.href = "/checkStatus";
+        }
+
+        function updateComplaint() {
+            window.location.href = "/fetchComplaints";
+        }
+
+        function deleteComplaint() {
+            window.location.href = "/deleteComplaint";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>check complaint status</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #e7feff ;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.complaint-container {
+			background-color: #b0e0e6;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+
+		.complaint-details {
+			margin-bottom: 10px;
+		}
+
+		.btn-update {
+			background-color: #009698;
+			color: white;
+			padding: 8px 16px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-update:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="complaints-list">
+		<ul>
+			<li th:each="complaint : ${complaints}">
+				<div class="complaint-container">
+					<!-- Display complaint details -->
+					<div class="complaint-details">
+						<p th:text="'User Login: ' + ${complaint.userLogin}"></p>
+						<p th:text="'Phone: ' + ${complaint.phone}"></p>
+						<p th:text="'City: ' + ${complaint.city}"></p>
+						<p th:text="'Pincode: ' + ${complaint.pincode}"></p>
+						<p th:text="'Address: ' + ${complaint.address}"></p>
+						<p th:text="'Incident: ' + ${complaint.incident}"></p>
+						<p th:text="'Place: ' + ${complaint.place}"></p>
+						<p th:text="'Complaint For: ' + ${complaint.complaintFor}"></p>
+						<p th:text="'Date: ' + ${complaint.date}"></p>
+						<p th:text="'Victim Name: ' + ${complaint.victimName}"></p>
+						
+						<p th:text="'Status: ' + ${complaint.status}"></p>
+						<p th:text="'Additional Info: ' + ${complaint.additionalInfo}"></p>
+					</div>
+
+				</div>
+	</div>
+	</li>
+	</ul>
+	</div>
+
+	
+</body>
+
+</html>
